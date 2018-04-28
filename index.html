@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Train Schedule</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Local CSS 
+    <link rel="stylesheet" href="assets/styles/test.css"> -->
 </head>
+
 <body>
-    
+
+    <div class="jumbotron">
+        <h1>
+            <class="text-center">Train Schedule</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Current Train Schedule</h3>
+                </div>
+                <div class="panel-body">
+                    <!-- Table -->
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (min)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="panel panel-primary">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Add Train</div>
+                        <form>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Train Name</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Aichi Express">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Destination</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nagoya">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">First Train Time (HH:mm miliatry time)</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="18:30">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Frequency (min)</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="13 minutes">
+                            </div>
+                            <input class="btn btn-default" type="submit" value="Submit">
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+            <!-- Local JavaScript -->
+            <script src="assets/javascript/train.js"></script>
 </body>
+
 </html>
