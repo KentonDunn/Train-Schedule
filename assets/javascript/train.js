@@ -33,7 +33,8 @@ $("#addTrain").on("click", function(event) {
     name: trainName,
     destination: dest,
     train: firstTrain,
-    howoften: frequency
+    freq: frequency,
+    dateAdded: firebase.database.ServerValue.TIMESTAMP
   };
 
   database.ref().push(newTrain);
@@ -41,5 +42,59 @@ $("#addTrain").on("click", function(event) {
   console.log(newTrain.name);
   console.log(newTrain.destination);
   console.log(newTrain.train);
-  console.log(newTrain.howoften);
+  console.log(newTrain.freq);
+  console.log(newTrain.dateAdded);
 });
+
+//Activity 18-Push and Activity 20- Moment JS
+/* I'll need these to finish the coding */
+
+// Firebase watcher + initial loader + order/limit HINT: .on("child_added"
+database
+  .ref()
+  .orderByChild("dateAdded")
+  .limitToLast(1)
+  .on(
+    "child_added",
+    function(snapshot) {
+      // storing the snapshot.val() in a variable for convenience
+      var sv = snapshot.val();
+
+      // Console.loging the last user's data
+      console.log(sv.name);
+      console.log(sv.destination);
+      console.log(sv.train);
+      console.log(sv.freq);
+
+      $("#newSchedule").append(
+        "<tr>" +
+          "<td>" +
+          sv.name +
+          "</td>" +
+          "<td>" +
+          sv.destination +
+          "</td>" +
+          "<td>" +
+          sv.freq +
+          "</td>" +
+          "<td>" +
+          "EMPTY" +
+          "</td>" +
+          "<td>" +
+          "EMPTY" +
+          "</td>" +
+          "</tr>"
+      );
+
+      // Change the HTML to reflect
+      $("#name-display").text(sv.name);
+      $("#email-display").text(sv.email);
+      $("#age-display").text(sv.age);
+      $("#comment-display").text(sv.comment);
+
+      // Handle the errors
+    },
+    function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    }
+  );
