@@ -83,15 +83,22 @@ database
       var timeDifference = moment().diff(moment(yearAgoTrain), "minutes");
       console.log("Difference in Time Since First Train: " + timeDifference);
 
-      /*/calculate the remainder modulo to calculate when the next train will arrive
+      //calculate the remainder modulo to calculate when the next train will arrive
       var timeRemainder = timeDifference % sv.freq;
-      Console.log("HEY" + timeRemainder);*/
+      console.log("HEY" + timeRemainder);
 
-      /*/calculate minutes until the next train
+      //calculate minutes until the next train
       var minutesTillNextTrain = sv.freq - timeRemainder;
       console.log(
         "Minutes Until Next Train: " + minutesTillNextTrain + "minutes"
-      );*/
+      );
+
+      //update the arrival time
+
+      var arrivalTime = moment().add(minutesTillNextTrain, "minutes");
+      console.log("Arrival time: " + moment(arrivalTime).format("HH:mm"));
+
+      var arrival = moment(arrivalTime).format("HH:mm");
 
       $("#newSchedule").append(
         "<tr>" +
@@ -105,10 +112,10 @@ database
           sv.freq +
           "</td>" +
           "<td>" +
-          "NEXT ARRIVAL TIME" +
+          arrival +
           "</td>" +
           "<td>" +
-          "EMPTY" +
+          minutesTillNextTrain +
           "</td>" +
           "</tr>"
       );
