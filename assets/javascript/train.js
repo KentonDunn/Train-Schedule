@@ -54,7 +54,7 @@ $("#addTrain").on("click", function(event) {
 database
   .ref()
   .orderByChild("dateAdded")
-  .limitToLast(1)
+  .limitToLast(5)
   .on(
     "child_added",
     function(snapshot) {
